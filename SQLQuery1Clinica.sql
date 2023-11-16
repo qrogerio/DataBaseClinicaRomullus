@@ -1,0 +1,29 @@
+CREATE DATABASE ClinicaRomullus;
+GO 
+USE ClinicaRomullus;
+GO
+TRUNCATE TABLE Medico;
+GO
+ALTER TABLE Medico 
+ADD CONSTRAINT UQ_CRM UNIQUE (CRM);
+
+CREATE TABLE Medico (
+    Id INT PRIMARY KEY IDENTITY(1,1),
+    CRM NCHAR(8),
+    Nome VARCHAR(80)
+);
+INSERT INTO Medico(CRM,Nome)VALUES('DF224455','Joquino de Burquerque');
+INSERT INTO Medico(CRM,Nome)VALUES('DF112255','Rodrigo de Deus');
+INSERT INTO Medico(CRM,Nome)VALUES('DF334455','Edir Mais Cedo');
+INSERT INTO Medico(CRM,Nome)VALUES('GO334455','Holdai Luz');
+INSERT INTO Medico(CRM,Nome)VALUES('GO449988','Yuri Luz');
+INSERT INTO Medico(CRM,Nome)VALUES('GO885599','Luiz filho');
+
+SELECT * FROM Medico;
+
+CREATE TABLE Paciente (
+    Id INT PRIMARY KEY IDENTITY(1,1),
+    Nome VARCHAR(80),
+    DataDeNascimento DATE,
+    CPF NCHAR(11)
+);
